@@ -28,6 +28,20 @@ app.post("/notes", (req, res) => {
   res.status(201).json({ data : newNote});
 });
 
+app.get("/notes/:noteId", (req, res) => {
+  const noteId = req.params.noteId;
+  const note = notes.find((note) => note.id === Number(noteId));
+
+  if (note) {
+    res.json({ data: note });
+  } else {
+    res.status(404).send(`Note id not found: ${noteId}`);
+  }
+});
+
+
+
+
 
 
 module.exports = app;
