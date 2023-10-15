@@ -40,7 +40,10 @@ app.get("/notes/:noteId", (req, res) => {
 });
 
 
-
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send("Something went wrong!");
+});
 
 
 
