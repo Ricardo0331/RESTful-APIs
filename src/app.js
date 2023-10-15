@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
-
 const notes = require("./data/notes-data");
+
+app.use(express.json());
+
 
 app.post("/notes", (req, res) => {
   //validate incoming request
