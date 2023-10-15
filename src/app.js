@@ -41,6 +41,14 @@ app.get("/notes/:noteId", (req, res) => {
   }
 });
 
+app.get("/notes", (req, res) => {
+  res.status(200).json({ data: notes })
+});
+
+app.use((req, res) => {
+  res.status(404).send(`Not found: ${req.originalUrl}`);
+});
+
 
 app.use((err, req, res, next) => {
   console.error(err);
